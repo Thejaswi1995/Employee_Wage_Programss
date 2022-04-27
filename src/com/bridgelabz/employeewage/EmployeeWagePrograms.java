@@ -3,19 +3,23 @@ public class EmployeeWagePrograms {
     private static final int WAGE_PER_HOUR = 20;
     private static final int FULL_DAY_HOUR = 8;
     private static final int HALF_DAY_HOUR = 4;
+    private static final int IS_FULLTIME = 1;
+    private static final int IS_HALFTIME = 2;
 
     public static void main(String[] args) {
         int dailyWage = 0;
         double x = Math.random();
         int empStatus = (int) (x * 10) % 3;
-        if (empStatus == 1) {
-            System.out.println("Employee worked full time");
-            dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
-        }
-            else if (empStatus == 2) {
+       switch(empStatus) {
+           case IS_FULLTIME :
+                System.out.println("Employee worked full time");
+                dailyWage = WAGE_PER_HOUR * FULL_DAY_HOUR;
+                break;
+           case IS_HALFTIME :
                 System.out.println("Employee worked part time");
                 dailyWage = WAGE_PER_HOUR * HALF_DAY_HOUR;
-        } else {
+                break;
+           default:
             System.out.println("Employee is Absent");
         }
 
